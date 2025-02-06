@@ -19,4 +19,15 @@ class HttpService {
       throw "Unable to retrieve surah.";
     }
   }
+
+  Future<Surah> getSurahByNumber(int nomor) async {
+    Response res = await get(Uri.parse("$postsURL/$nomor"));
+
+    if (res.statusCode == 200) {
+      Map<String, dynamic> body = jsonDecode(res.body);
+      return Surah.fromJson(body);
+    } else {
+      throw Exception("Gagal mengambil surah dengan nomor.");
+    }
+  }
 }

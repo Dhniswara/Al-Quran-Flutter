@@ -36,18 +36,13 @@ class PostsPage extends StatelessWidget {
                         child: Text('${tampil.nomor}', style: const TextStyle(color: Colors.white),),
                       ),
                       title: Text(
-                        "Surat Ke - ${tampil.nomor}: ${tampil.nama}",
+                        "Surat Ke - ${tampil.nomor} ${tampil.nama_latin}",
                         style:
                             const TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       subtitle: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(
-                            "Nama Surat: ${tampil.nama_latin}",
-                            style: const TextStyle(
-                                color: Colors.white70, fontSize: 16),
-                          ),
                           Text(
                             "Arti: ${tampil.arti}",
                             style: const TextStyle(
@@ -61,7 +56,7 @@ class PostsPage extends StatelessWidget {
                         ],
                       ),
                       onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => SurahDetail(surah: tampil)),
+                        MaterialPageRoute(builder: (context) => DetailPage(nomor: tampil.nomor)),
                       ),
                     ),
                   ),
